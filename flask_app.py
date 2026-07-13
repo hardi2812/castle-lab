@@ -15,7 +15,7 @@ DATABASE_URL = os.environ.get(
 )
 
 def get_db():
-    conn = psycopg2.connect(DATABASE_URL, cursor_factory=DictCursor)
+    conn = psycopg2.connect(DATABASE_URL)
     return conn
 
 @app.route('/')
