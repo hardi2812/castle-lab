@@ -14,9 +14,13 @@ DATABASE_URL = os.environ.get(
     'postgresql://postgres:Egorb20095658@db.dfersqopzrbqzivclgae.supabase.co:5432/postgres'
 )
 
+db_connection = None
+
 def get_db():
-    conn = psycopg2.connect(DATABASE_URL)
-    return conn
+    global db_connection
+    if db_connection is None or db_connection.closed:
+        db_connection = psycopg2.connect(DATABASE_URL)
+    return db_connection
 
 @app.route('/')
 def index():
