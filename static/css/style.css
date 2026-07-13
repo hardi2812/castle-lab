@@ -1,0 +1,648 @@
+html {
+    scroll-behavior: smooth; /* Включает плавный скролл по всему сайту */
+}
+
+/* Базовое состояние для скрытых блоков */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px); /* Блок слегка смещен вниз */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
+}
+
+/* Состояние, когда блок стал видимым */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0); /* Возвращаем блок на место */
+}
+
+
+/* Базові налаштування */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    background-color: #fbfbf9; /* Дуже м'який білий колір, приємний для очей */
+    color: #111111;
+    line-height: 1.5;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 60px;
+}
+
+.logo-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.logo-sub {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+.btn-contact-header {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #111;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.btn-contact-header:hover {
+    background-color: #111;
+    color: #fff;
+}
+
+/* Головний екран */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 80px;
+}
+
+.hero-content {
+    flex: 1.2;
+}
+
+.hero-content h1 {
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 17px;
+    color: #4b5563;
+    margin-bottom: 35px;
+    max-width: 580px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: #111;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.hero-visual {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-container {
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.03);
+}
+
+.avatar-image {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+
+/* Секція послуг */
+.services-section {
+    padding: 60px 0;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки на десктопе */
+    gap: 30px;
+}
+
+.service-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+    border-color: #d1d5db;
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    color: #111;
+}
+
+.service-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    font-weight: 850;
+    margin-bottom: 15px;
+    letter-spacing: -0.3px;
+}
+
+.service-card p {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Чтобы кнопки всегда были на одном уровне */
+}
+
+.service-link {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-block;
+}
+
+.service-link:hover {
+    color: #4b5563; /* Слегка меняем цвет при наведении */
+}
+
+/* Портфоліо */
+.portfolio-section {
+    padding: 60px 0;
+    margin-bottom: 80px;
+}
+
+.portfolio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.portfolio-item {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    overflow: hidden;
+    padding: 40px;
+    gap: 50px;
+    transition: all 0.25s ease;
+}
+
+.portfolio-item:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+}
+
+.portfolio-info {
+    flex: 1.2;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: #4b5563;
+    background: #f3f4f6;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.portfolio-info h3 {
+    font-size: 26px;
+    font-weight: 850;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.portfolio-info p {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-project {
+    padding: 12px 24px;
+    font-size: 14px;
+}
+
+.portfolio-preview {
+    flex: 0.8;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9fafb;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    color: #111;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 20px;
+}
+
+/* Нові заголовки блоків (вирівняні по лівому краю) */
+.section-title-left {
+    font-size: 26px;
+    font-weight: 850;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+    text-align: left;
+}
+
+/* Нова секція етапів (в стилі карток послуг) */
+.steps-section {
+    padding: 60px 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.step-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 35px 30px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-3px);
+    border-color: #cbd5e1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.step-badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    color: #4b5563;
+    background: #f3f4f6;
+    padding: 4px 10px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.step-card h3 {
+    font-size: 19px;
+    font-weight: 850;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.step-card p {
+    font-size: 14.5px;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* Секція технологій (мінімалістична плашка) */
+.tech-section {
+    padding: 60px 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.tech-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.tech-category-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.25s ease;
+}
+
+.tech-category-card:hover {
+    transform: translateY(-3px);
+    border-color: #cbd5e1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.category-icon {
+    font-size: 20px;
+}
+
+.category-header h3 {
+    font-size: 16px;
+    font-weight: 850;
+    letter-spacing: -0.3px;
+    color: #111;
+}
+
+.tech-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-tags-list span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #4b5563;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.tech-tags-list span:hover {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+/* Абсолютно новий центрований підвал */
+.main-footer {
+    padding: 60px 0 40px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.footer-line {
+    height: 1px;
+    background: #e5e7eb;
+    margin-bottom: 40px;
+}
+
+.footer-container {
+    max-width: 600px; /* Зажимаем ширину, чтобы текст не растягивался */
+    margin: 0 auto;
+    text-align: center; /* Все элементы строго по центру */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #111;
+}
+
+.footer-tagline {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Навігація в один рядок */
+.footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.footer-nav a {
+    font-size: 14px;
+    color: #4b5563;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-nav a:hover {
+    color: #111;
+}
+
+.footer-dot {
+    color: #d1d5db;
+    font-size: 12px;
+}
+
+/* Іконка Телеграма */
+.tg-mini-icon {
+    width: 14px;
+    height: 14px;
+    color: #4b5563;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover .tg-mini-icon {
+    color: #111;
+}
+
+/* Копірайт */
+.footer-copy {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 10px;
+}
+
+
+
+/* Адаптивність для мобілок */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .avatar-image {
+        width: 240px;
+        height: 240px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr; /* На мобильных карточки встают друг под друга */
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 30px 25px;
+    }
+
+    .portfolio-item {
+        flex-direction: column-reverse;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .portfolio-preview {
+        width: 100%;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tech-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .footer-dot {
+        display: none; /* Ховаємо крапки на мобільних, коли посилання в стовпчик */
+    }
+
+
+}
